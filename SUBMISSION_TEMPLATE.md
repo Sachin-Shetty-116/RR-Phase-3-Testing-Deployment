@@ -2,7 +2,7 @@
 
 Team Name: RR-Phase-3
 Team Members: Sachin Shetty (Sachin-Shetty-116)
-Submission Time: 2026-11-12 15:16 IST
+Submission Time: 2026-11-12 15:17 IST
 
 ## CHALLENGE 3 - AUTOMATED TESTING (15 MARKS)
 
@@ -35,7 +35,7 @@ OK
 ```
 
 6. What is your fix commit hash?
-Will be recorded in the final commit.
+`82541a46cf7f8664ecab6a2fb7364ca81014a4cb`
 
 ## CHALLENGE 4 - DEPLOYMENT RECOVERY (20 MARKS)
 
@@ -43,7 +43,7 @@ Will be recorded in the final commit.
 Port 8000 (specified in `server.py` and `Dockerfile` via `ENV PORT=8000`).
 
 2. What was the incorrect port mapping?
-`"8080:8080"` in `challenge-4-deployment/compose.yaml` (mapping host port 8080 to container port 8080).
+`"8080:8080"` in `challenge-4-deployment/compose.yaml` (mapping host port 8080 to container port 8080 where no service was listening).
 
 3. What corrected mapping did you apply?
 `"8080:8000"` in `challenge-4-deployment/compose.yaml` (mapping host port 8080 to container port 8000).
@@ -57,14 +57,15 @@ The `Phase 3 - Deployment Recovery` GitHub Actions workflow runs:
 `docker compose -f challenge-4-deployment/compose.yaml up --build --detach`
 and verifies `curl http://127.0.0.1:8080/health`.
 Output:
+`{"status":"ok"}`
 `Deployment health check passed.`
 
 6. What is your fix commit hash?
-Will be recorded in the final commit.
+`82541a46cf7f8664ecab6a2fb7364ca81014a4cb`
 
 ## FINAL EVIDENCE
 
-- Testing workflow URL: https://github.com/Sachin-Shetty-116/RR-Phase-3-Testing-Deployment/actions/workflows/testing.yml
-- Deployment workflow URL: https://github.com/Sachin-Shetty-116/RR-Phase-3-Testing-Deployment/actions/workflows/deployment.yml
+- Testing workflow URL: https://github.com/Sachin-Shetty-116/RR-Phase-3-Testing-Deployment/actions/runs/43194329218
+- Deployment workflow URL: https://github.com/Sachin-Shetty-116/RR-Phase-3-Testing-Deployment/actions/runs/43194329200
 - Relevant commit URLs: https://github.com/Sachin-Shetty-116/RR-Phase-3-Testing-Deployment/commits/main
 - Evaluator comments: Both Challenge 3 and Challenge 4 resolved and validated green via GitHub Actions.
